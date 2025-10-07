@@ -1,0 +1,622 @@
+/* ----------------------- 
+
+TABLE OF CONTENTS
+
+# GLOBAL
+    # DEFINE GLOBAL VARIABLES (CUSTOM PROPERTIES)
+    # SET GLOBAL COLORS
+    # SET GLOBAL TYPOGRAPHY
+    # GLOBAL MEDIA (images, videos, svg)
+    # GLOBAL HELPERS
+    # GLOBAL RESETS
+        # ENABLE SMOOTH SCROLLING
+    # LINKS
+    ...
+
+# LAYOUT
+    # CONTAINER
+    # MAIN
+        # SECTIONS
+    # FOOTER
+
+# SITE STRUCTURE
+    # HEADER
+        # LOGO
+        # SITE NAV
+    # GRID SYSTEM (12 COLUMNS)
+
+# UI COMPONENTS
+    # BUTTONS
+    # CARDS
+    # HR (HORIZONTAL RULES)
+    # CODE BLOCKS
+
+    (WILL ADD MORE HERE)
+
+# CUSTOM SITE STYLING (OPINIONATED)
+    # BODY GRID LAYOUT SYSTEM (header, main, footer)
+    # CUSTOM HERO STYLING
+    # CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT
+    # STICKY BOX
+    # AO DAI TYPEBLOCK
+
+-------------------------*/
+
+/* --------------------- 
+        GLOBALS 
+------------------------ */
+
+/* DEFINE GLOBAL VARIABLE */
+
+:root {
+
+    /* DEFINE BASE COLORS */
+    
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-black-80: rgb(0,0,0,.8);
+    --color-black-70: rgb(0,0,0,.7);
+    --color-black-60: rgb(0,0,0,.6);
+    --color-black-50: rgb(0,0,0,.5);
+    --color-black-40: rgb(0,0,0,.4);
+    --color-black-30: rgb(0,0,0,.3);
+    --color-black-20: rgb(0,0,0,.2);
+
+    --color-grey-200: rgb(0,0,0,.2);
+
+    --color-blue-100: #ccdffc;
+    --color-blue-400: #3b82f6;
+    --color-blue-900: #1e40af;
+
+    --color-green-100: #d1fae5;
+    --color-green-200: #b1e5ca;
+    --color-green-400: #22c55e;
+    --color-green-600: #1AA44D;
+    --color-green-800: #1B7E41;
+    --color-green-400: #166534;
+
+    /* DEFINE SEMANTIC COLORS */
+    --color-body-background: var(--color-white);
+    --color-body-text: var(--color-black-80);
+    --color-body-text-dark: var(--color-black);
+
+    --color-primary: var(--color-blue-400);
+    --color-primary-dark: var(--color-blue-900);
+    --color-secondary: var(--color-green-400);
+
+    /* ACTION COLORS */
+    --color-links: var(--color-black-70);
+    --color-links-hover: var(--color-black);
+    --color-links-light: var(--color-black-30);
+
+    /* SECTION SPECIFIC */
+    --color-hero-background: var(--color-black-30);
+    --color-siteheader-background: transparent;
+    --color-sitefooter-background: transparent;
+    --color-siteheader-links: var(--color-black-60);
+    --color-siteheader-links-hover: var(--color-black-80);
+
+    /* BORDER */
+    --color-border: var(--color-grey-200);
+    --border-radius: 10px;
+    --border-thickness: 0.5px;
+
+    /* SIZING UNITS */
+    --unit-3xs: 0.125rem;
+    --unit-2xs: 0.25rem;
+    --unit-xs: 0.5rem;
+    --unit-s: 1rem;
+    --unit-m: 1.5rem;
+    --unit-l: 2rem;
+    --unit-xl: 3rem;
+    --unit-2xl: 4rem;
+    --unit-3xl: 6rem;
+
+    --container-width: 1100px;
+
+    /* GLOBAL FONTS */
+    --font-body: system-ui, Helvetica, Arial, sans-serif;
+    --font-headings: Georgia, Times, "Times New Roman", serif;
+}
+
+/* SET GLOBAL TYPOGRAPHY */
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-body-background);
+    color: var(--color-body-text);
+}
+
+/* HEADINGS */
+h1, h2, h3 {
+    font-family: var(--font-headings);
+    color: var(--color-body-text-dark);
+    /* ADD SUPPORT FOR TEXTWRAP BALANCE */
+    text-wrap: balance;
+}
+
+/* REMOVE WIDOWS FOR ALL PARAGRAPHS AND LIST ITEMS */
+p, li {
+    text-wrap: pretty;
+}
+
+/* LIMIT THE NUMBER OF CHARACTERS PER LINE FOR ALL PARAGRAPHS */
+p {
+    max-inline-size: 75ch;
+}
+
+/* GLOBAL MEDIA */
+
+/* IMAGES */
+/* responsive on small screens, do not stretch (beyond the original on large screens) */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* GLOBAL HELPERS */
+.text-centered {
+    text-align: center;
+}
+
+/* CENTER PARAGRAPHS INSIDE CENTERED PARENTS */
+.text-centered p {
+    margin-inline: auto;
+}
+
+/* HIDE CONTENT VISUALLY (BUT KEEP FOR SEO AND ACCESBILITY) */
+.hide-visually, 
+.visually-hidden,
+.screen-reader-only {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+
+}
+/* Remove the default 8px margin on body */
+body {
+    margin: 0;
+}
+
+/* GLOBAL RESETS */
+/* Set all elements to bix sizing border-box */
+* { box-sizing: border-box;}
+
+/* ENABLE SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ADD OFFSET TO ALL INLINE ANCHOR LINKS */
+:target {
+    scroll-margin-top: var(--unit-s);   
+}
+
+/* LINKS */
+a {
+    color: var(--color-links);
+    text-decoration-color: var(--color-black);
+    text-underline-offset: .1em;
+    text-decoration-thickness: 0.75px;
+}
+
+a:hover {
+    color: var(--color-links-hover);
+}
+
+
+/* ------------------------- 
+        LAYOUT
+---------------------------- */
+
+/* CONTAINER */
+.container {
+    max-width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: var(--unit-s);
+}
+
+/* GRID SYSTEM (12 COLUMNS) */
+
+.row {
+    --grid-gap: var(--unit-s);
+}
+
+.row > * {
+    margin-block-end: var(--grid-gap);
+}
+
+/* NEW WIDTH SYNTAX (updated from min-width: 768px) */
+@media (width >= 768px) {
+
+    .row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--grid-gap);
+    }
+
+    /* SEMANTIC COLUMNS */
+    .one-half { grid-column: auto / span 6; }
+    .one-third { grid-column: auto / span 4; }
+    .two-thirds { grid-column: auto / span 8;}
+    .one-fourth { grid-column: auto / span 3; }    
+    .three-fourths { grid-column: auto / span 9; }     
+
+    /* SWAPS (REVERSE COLUMNS) - WORKS ONLY w/ 2 COLUMNS */
+    .row.swapped > *:first-child { order: 2; }
+    .row.swapped > *:last-child { order: 1; }
+
+    /* CENTERED COLUMNS */
+    .one-half.centered { grid-column-start: 4; }
+    .two-thirds.centered { grid-column-start: 3; }
+
+    /* 12 COLUMNS CLASS-BASED GRID SYSTEM */
+    .col-1 { grid-column: auto / span 1; }
+    .col-2 { grid-column: auto / span 2; }
+    .col-3 { grid-column: auto / span 3; }
+    .col-4 { grid-column: auto / span 4; }
+    .col-5 { grid-column: auto / span 5; }
+    .col-6 { grid-column: auto / span 6; }
+    .col-7 { grid-column: auto / span 7; }
+    .col-8 { grid-column: auto / span 8; }
+    .col-9 { grid-column: auto / span 9; }
+    .col-10 { grid-column: auto / span 10; }
+    .col-11 { grid-column: auto / span 11; }
+    .col-12 { grid-column: auto / span 12; }
+
+    /* PUSHES */
+    .push-1 { grid-column-start: 2; }
+    .push-2 { grid-column-start: 3; }
+    .push-3 { grid-column-start: 4; }
+    .push-4 { grid-column-start: 5; }
+    .push-5 { grid-column-start: 6; }
+    .push-6 { grid-column-start: 7; }
+    .push-7 { grid-column-start: 8; }
+    .push-8 { grid-column-start: 9; }
+    .push-9 { grid-column-start: 10; }
+    .push-10 { grid-column-start: 11; }
+    .push-11 { grid-column-start: 12; }
+}
+
+/* FOR DEMO PURPOSES ONLY */
+.row.demo > * {
+    background-color: #eee;
+    text-align: center;
+    padding: var(--unit-s);
+}
+
+/* ------------------------- 
+        SITE STRUCTURE 
+---------------------------- */
+
+/* SITE HEADER */
+.site-header {
+    padding-block: var(--unit-s);
+    padding-inline: var(--unit-s);
+}
+
+/* REMOVE HEADER PADDING IF HAS A CONTAINER */
+.site-header:has(.container) {
+    padding-inline: 0;
+}
+
+/* LOGO STYLING */
+
+.site-header .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--unit-s);
+}
+
+.site-header .logo svg {
+    max-height: 50px;
+    min-width: 50px;
+}
+
+.site-header .logo img,
+.site-header .logo svg {
+    vertical-align: middle;
+}
+
+.site-header .logo h2 {
+    margin: 0;
+    font-size: 1.3125rem;
+}
+
+.site-header .logo a {
+    text-decoration: none;
+}
+
+    /* DISPLAY LOGO ON FLEX AND NAV ON RIGHT */
+    .site-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--unit-s);
+        flex-wrap: wrap;
+}
+
+/* SITE NAV */
+.site-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: var(--unit-s);
+    flex-wrap: wrap;
+}
+
+.site-nav a {
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: var(--unit-s);
+    padding-block-start: calc(var(--unit-xs) + .1em);
+    color: var(--color-siteheader-links);
+}
+
+.site-nav a:hover {
+    color: var(--color-siteheader-links-hover);
+}
+
+/* SHOW MENU BUTTON ON HIGHER LAYER WHEN NAV IS OPEN */
+.site-nav .menubutton {
+    position: relative;
+    z-index: 100;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    padding: var(--unit-xs);
+    padding-block-start: var(--unit-xs);
+}
+
+/* SMALL SCREENS: SHOW MENU, HIDE NAV */
+.site-nav .menubutton { display: block; }
+.site-nav ul { display: none; }
+
+/* BIG SCREENS: HIDE MENU BUTTON, SHOW NAV */
+@media ( width >= 768px ) {
+    .site-nav .menubutton { display: none; }
+    .site-nav ul { display: flex; }
+}
+
+/* SMALL SCREENS ONLY: ENABLE OVERLAY */
+@media ( width < 768px ) {
+    .site-nav[data-menustate] ul {
+        display: grid;
+        align-content: center;
+        justify-content: center;
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-black);
+        transition: translate 0.4s ease-out;
+    }
+
+    .site-nav[data-menustate] a {
+        color: var(--color-white);
+    }
+
+    .site-nav[data-menustate="open"] ul {
+        translate: 0 0;
+    }
+
+    .site-nav[data-menustate="closed"] ul {
+        translate: 100% 0;
+    }
+
+    /* ENABLE SVG ANIMATION FOR THE NAVICON*/
+    .site-nav[data-menustate] svg.simple-navicon rect {
+        transition: all 0.2s ease-out;
+        fill: var(--color-black);
+    }
+
+    /* CHANGE COLOR OF THE SVG NAVICON WHEN MENU IS OPEN */
+    .site-nav[data-menustate="open"] svg.simple-navicon rect {
+        fill: var(--color-white);
+    }
+
+    /* ANIMATE NAVICON LINES TO AN X WHEN OPEN */
+    .site-nav .simple-navicon {
+        display: block;
+    }
+    
+    .site-nav .simple-navicon rect {
+        transform-origin: center;
+        width: 100%
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-top {
+        position: fixed;
+        top: calc(var(--unit-s) + var(--unit-s));
+        right: calc(var(--unit-s) + var(--unit-xs));
+        
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-top {
+        rotate: 45deg;
+        translate: -21% 24%;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-middle {
+        opacity: 0;
+    }
+    .site-nav[data-menustate="open"] .simple-navicon-bottom {
+        rotate: -45deg;
+        translate: -21% -24%;
+    }
+}
+
+/* SITE MAIN */
+.site-main {
+    background-color: transparent;
+}
+
+section {
+    padding-block: var(--unit-2xl);
+}
+
+.hero {
+    background-color: var(--color-hero-background);
+    padding-block: var(--unit-3xl);
+    padding-inline: var(--unit-s);
+}
+
+.hero:has(.container) {
+    padding-inline: 0;
+}
+
+/* SITE FOOTER */
+.site-footer {
+    background-color: var(--color-sitefooter-background);
+    padding-block: var(--unit-2xl);
+    padding-inline: var(--unit-s);
+}
+
+.site-footer li {
+    padding: var(--unit-3xs);
+}
+/* REMOVE FOOTER PADDING IF HAS A CONTAINER */
+.site-footer:has(.container) {
+    padding-inline: 0;
+}
+
+
+/* ------------------------- 
+        UI COMPONENTS 
+---------------------------- */
+
+/* BUTTONS */
+.button {
+    background: var(--color-links);
+    color: var(--color-white);
+    padding: var(--unit-s);
+    margin-block: var(--unit-2xs);
+    display: inline-block;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    line-height: 1;
+}
+
+.button:hover {
+    background-color: var(--color-links-hover);
+    color: var(--color-white);
+}
+
+/* CARDS */
+.cards {
+    border: var(--border-thickness) solid var(--color-border);
+    display: inline-block;
+    margin-right: var(--unit-xs);
+    padding: var(--unit-s);
+    border-radius: var(--border-radius);
+}
+
+.color-swatch {
+    --swatch-color: grey;
+    background-color: var(--_swatch-color);
+    width: 150px;
+    height: 150px;
+}
+
+/* HR */
+hr {
+    border: none;
+    border-bottom: var(--border-thickness) solid var(--color-border);
+    margin: var(--unit-xl) 0;
+}
+
+/* CODE BLOCKS */
+pre:has(code) {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--unit-s);
+    border-radius: var(--border-radius);
+    white-space: pre-wrap;
+}
+
+/* ------------------------- 
+    CUSTOM SITE STYLING
+---------------------------- */
+/* PUSH THE FOOTER TO THE BOTTOM BY DEFAULT */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100svh;
+}
+
+/* TO FIX OVERFLOW WORD BREAK */
+body > * {
+    min-width: 0;
+}
+
+/* NUDGE THE NAV ITEMS DOWN TO ALIGN WITH LOGO TEXT */
+.site-header .site-nav ul {
+    padding-block-start: calc(var(--unit-xs) + 0.35em);
+}
+
+/* CUSTOM HERO STYLING */
+
+.hero h1 {
+    font-size: 4em;
+    font: clamp(2.5em, 4vw, 4em);
+    margin-block: 0;
+    overflow-wrap: break-word;
+}
+
+.hero p {
+    max-inline-size: 50ch;
+    text-wrap: balance;
+}
+
+/* CUSTOM PAGE LAYOUT - 2 COLUMNS: ASIDE + MAIN CONTENT */
+
+.pagelayout-wrapper-twocolumn {
+    padding-inline: var(--unit-2xs);
+}
+
+@media ( width>= 768px ) {
+.pagelayout-wrapper-twocolumn {
+    display: flex;
+    gap: var(--unit-l);
+}
+
+.pagesection-aside {
+    width: 25%;
+}
+
+.pagesection-maincontent {
+    width: 75%;
+}
+}
+
+/* STICKY BOX */
+/* NOTE NEEDED ON SMALL SCREENS, SO IT IS SET INSIDE OF A MEDIA QUERY SO IT ALLOWS THE OVERLAY MENU TO RENDER ON TOP OF SMALL SCREENS */
+@media ( width >= 768px ) {
+    .stickybox {
+        position: sticky;
+        top: var(--unit-s);
+}}
+
+/* AO DAI TYPEBLOCK */
+.aodai-eyebrow {
+    font-size: .875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: .5;
+    line-height: 1;
+}
+
+.aodai-headline {
+    font-size: 3rem;
+    margin-block: var(--unit-s);
+    line-height: 1.1;
+}
+
+.aodai-subheadline {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-block: var(--unit-xs);
+    opacity: .8;
+    line-height: 1.2;
+}
