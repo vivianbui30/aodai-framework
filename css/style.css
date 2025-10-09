@@ -40,6 +40,8 @@ TABLE OF CONTENTS
     # STICKY BOX
     # AO DAI TYPEBLOCK
 
+
+# ANIMATIONS
 -------------------------*/
 
 /* --------------------- 
@@ -620,3 +622,70 @@ body > * {
     opacity: .8;
     line-height: 1.2;
 }
+
+/* --------------------- 
+        ANIMATIONS
+------------------------ */
+/* .scale-and-fade-in {
+    animation-name: scale-and-fade-in;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0,1,0,1);
+}
+
+@keyframes scale-and-fade-in {
+    0% {
+        scale: 0;
+        opacity: 0;
+    }
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+} */
+
+.slide-from-top-and-fade-in {
+    animation-name: slide-from-top-and-fade-in;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0,0.5,0.5,1);
+    animation-fill-mode: forwards;
+    opacity: 0;
+    translate: 0 -40px ;
+    
+}
+
+@keyframes slide-from-top-and-fade-in {
+    0% {
+        opacity: 0;
+        translate: 0 -40px;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.slide-from-left-and-fade-in {
+    animation-name: slide-from-left-and-fade-in;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0,1,0,1);
+    animation-fill-mode: forwards;
+    opacity: 0;
+    translate: -40px 0;
+    
+}
+
+@keyframes slide-from-left-and-fade-in {
+    0% {
+        opacity: 0;
+        translate: -40px 0;
+    }
+    100% {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.delay-1 { animation-delay : 0.1s; }
+.delay-2 { animation-delay : 0.2s; }
+.delay-3 { animation-delay : 0.3s; }
+.delay-4 { animation-delay : 0.5s; }
