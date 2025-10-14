@@ -42,6 +42,8 @@ TABLE OF CONTENTS
 
 
 # ANIMATIONS
+    # REGULAR ON PAGE LOAD ANIMATIONS
+    # SCROLL-TRIGGERED ANIMATIONS
 -------------------------*/
 
 /* --------------------- 
@@ -643,6 +645,7 @@ body > * {
     }
 } */
 
+/* REGULAR ON PAGE LOAD ANIMATIONS */
 .slide-from-top-and-fade-in {
     animation-name: slide-from-top-and-fade-in;
     animation-duration: 1s;
@@ -685,7 +688,47 @@ body > * {
     }
 }
 
-.delay-1 { animation-delay : 0.1s; }
-.delay-2 { animation-delay : 0.2s; }
-.delay-3 { animation-delay : 0.3s; }
-.delay-4 { animation-delay : 0.5s; }
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.5s; }
+.delay-5 { animation-delay: 0.7s; }
+.delay-6 { animation-delay: 0.9s; }
+
+/* SCROLL-TRIGGERED ANIMATIONS */
+
+/* fix scroll-bar on all scroll animation sections */
+.section:has(.observe-me) {
+    overflow-x: clip;
+}
+/* on scroll slide-in from the left */
+.observe-me.onscroll-slide-in-from-left {
+    opacity: 0;
+    translate: -20px 0;
+    transition: all .5s ease-out .2s;
+}
+
+.observe-me[data-viewstate="active"].observe-me.onscroll-slide-in-from-left {
+    opacity: 1;
+    translate: 0 0;
+}
+
+/* on scroll slide-in from the right */
+.observe-me.onscroll-slide-in-from-right {
+    opacity: 0;
+    translate: 20px 0;
+    transition: all .5s ease-out .2s;
+}
+
+.observe-me[data-viewstate="active"].observe-me.onscroll-slide-in-from-right {
+    opacity: 1;
+    translate: 0 0;
+}
+.observe-me.delay-0 { animation-delay: 0s; }
+.observe-me.delay-1 { animation-delay: 0.1s; }
+.observe-me.delay-2 { animation-delay: 0.2s; }
+.observe-me.delay-3 { animation-delay: 0.3s; }
+.observe-me.delay-4 { animation-delay: 0.5s; }
+.observe-me.delay-5 { animation-delay: 0.7s; }
+.observe-me.delay-6 { animation-delay: 0.9s; }
