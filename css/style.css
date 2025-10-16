@@ -30,6 +30,7 @@ TABLE OF CONTENTS
     # CARDS
     # HR (HORIZONTAL RULES)
     # CODE BLOCKS
+    # SWIPER SLIDER (CAROUSEL)
 
     (WILL ADD MORE HERE)
 
@@ -538,6 +539,27 @@ pre:has(code) {
     white-space: pre-wrap;
 }
 
+/* SWIPER CSS STYLING */
+.swiper {
+    margin-inline: 4rem;
+    padding-block-end: 2rem;
+}
+
+.swiper-wrapper {
+
+}
+/* MOVESWIPER ARROWS OUTSIDE OF SWIPER */
+.swiper-button-prev,
+.swiper-button-next {
+    /* translate: -50% 0; */
+    background-color: var(--color-white);
+    padding: var(--unit-xs);
+    border-radius: 100%;
+}
+
+.swiper-button-next {
+    /* translate: 50% 0; */
+}
 /* ------------------------- 
     CUSTOM SITE STYLING
 ---------------------------- */
@@ -732,3 +754,37 @@ body > * {
 .observe-me.delay-4 { animation-delay: 0.5s; }
 .observe-me.delay-5 { animation-delay: 0.7s; }
 .observe-me.delay-6 { animation-delay: 0.9s; }
+
+blockquote p {
+    display: inline;
+    max-width: 75%;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0.5em;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+  blockquote p:first-of-type:before {
+    color: #ccc;
+    content: open-quote;
+    left: -0.5em;
+    font-size: 3em;
+    vertical-align: -0.2em;
+    line-height: 0.2em;
+    margin-right: 0.25em;
+    /* font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.3em; */
+}
+  blockquote p:last-of-type:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 3em;
+    vertical-align: -0.6em;
+    margin-left: 0.25em;
+    line-height: 0.2em;
+    /* font-size: 4em;
+    line-height: 0.1em;
+    margin-left: 0.25em;
+    vertical-align: -0.6em; */
+}
