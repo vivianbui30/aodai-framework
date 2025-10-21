@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ao Dai Heritage - Framework</title>
     <meta name="description" content="A simple HTML CSS and JS starter base">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/cdj7pnl.css">
 </head>
 <body>
 
     <header class="site-header">
-        <div class="logo">
 
         <!-- INLINE SVG LOGO EXAMPLE
         <a href="index.html"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 500 500">
@@ -20,74 +21,92 @@
         </svg></a> -->
 
         <!-- INLINE IMG LOGO EXAMPLE -->
-        <a href="index.html"><img src="img/aodai_logo.svg" width="50" height="50" alt="aodai_framework logo"></a>
-            <h2 class="visually-hidden"><a href="index.html">Ao Dai Logo</a></h2>
-        </div>
+            <!-- <a href="index.html"><img src="img/aodai_logo.svg" width="50" height="50" alt="aodai_framework logo"></a>
+        </div> -->
 
-        <div class="sound">
-            <p>/aʊˈdaɪ,  ɔːˈdaɪ,  aʊˈzaɪ/</p>
-        </div>
 
-        <nav class="site-nav" data-menustate="closed">
-            <button class="menubutton">
-                <span class="hide-visually">Menu</span>
-                <svg class="simple-navicon" width="24" height="21">
-                    <rect class="simple-navicon-top" x="0" y="2" height="3" width="30"></rect>
-                    <rect class="simple-navicon-middle" x="0" y="9" height="3" width="30"></rect>
-                    <rect class="simple-navicon-bottom" x="0" y="16" height="3" width="30"></rect>
-                </svg>
+        <nav class="navbar">
+            <div class="site-logo">
+                <a class="navbar-brand" href="#"><img src="img/aodai_logo.svg" alt="aodai logo" width="50" height="50"></a>
+            </div>
+            <div class="sound">
+                <p>/aʊˈdaɪ,  ɔːˈdaɪ,  aʊˈzaɪ/</p>
+                <img onclick="playAudio()" src="img/speaker_icon.png" width="50" height="50">
+                <audio id="myAudio" src="img/aodai.mp3"></audio>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav5" aria-controls="navbarNav5" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="styleguide.html">Style Guide</a></li>
-            </ul>
+            
+            <div class="collapse navbar-collapse" id="navbarNav5">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">At A Glance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">How It All Began</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Where Tradition Breaths</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
 
     <main class="site-main">
 
         <section class="hero text-centered">
+            <div class="row">
+                <div class="one-third textimg">
+                    <img class="slide-from-top-and-fade-in delay-1" src="img/ao.png" alt="letter ao" width="500" height="500">
+                </div>
+                <div class="one-third img">
+                    <img class="slide-from-top-and-fade-in delay-1" src="img/hero_img.png" alt="hero image" width="699" height="674">
+                </div>
+                <div class="one-third textimg">
+                    <img class="slide-from-top-and-fade-in delay-1" src="img/dai.png" alt="letter dai" width="500" height="500">
+                </div>
+            </div>
+            <div class="quote">
+                <blockquote><p class="slide-from-top-and-fade-in delay-5">Step into the timeless elegance of the ao dai, where <em><b>history, culture,</em></b> and <em><b>beauty</em></b> are woven into every seam.</p></blockquote>
+            </div>
+        </section>
 
-                <h1 class="slide-from-top-and-fade-in delay-1">Áo Dài</h1>
-                <h2 class="slide-from-top-and-fade-in delay-2">Homepage Subheader</h2>
+        <section id="introduction">
+            <div class="container">
+                <div class="img-full-width">
+                    <img src="img/theintroduction.png" alt="introduction section" width="7721" height="3100">
+                </div>           
+            </div>
+        </section>
+
+        <section id="history">
+            <div class="student">
+                <div class="student-work">
+                <img src="img/left_1.png" alt="placeholder" width="1300" height="679">
+                <img src="img/left_2.png" alt="placeholder" width="1300" height="679">
+                <img src="img/left_3.png" alt="placeholder" width="1300" height="679">
+                <img src="img/left_4.png" alt="placeholder" width="1300" height="679">
+                <img src="img/left_5.png" alt="placeholder" width="1300" height="679">
+                </div>
+                <div class="student-meta">
+                <p class="drop-cap">The history of the creation and development of the Vietnamese ao dai has been studied and updated by researchers for years now. The ups, downs and the constant changes have formed a distinctive Vietnamese cultural trait. The ao dai’s historical and cultural values have been gradually reinforced by the Vietnamese people while supported and cherished by their international friends. </p>
                 <blockquote>
-                    <p class="slide-from-top-and-fade-in delay-3">Step into the timeless elegance of the ao dai, where <em><b>history, culture,</em></b> and <em><b>beauty</em></b> are woven into every seam.</p>
+                The ao dai covers everything, hides nothing.
                 </blockquote>
-                <!-- <a href="#features" class="button slide-from-top-and-fade-in delay-4">See Features</a> -->
-            
-        </section>
-
-        <section>
-            <div class="container">
-
-                <div class="row">
-                    <div class="one-half">
-                        <img class="observe-me onscroll-slide-in-from-left" src="img/placeholder_2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    </div>
-                    <div class="one-half">
-                        <h2 class="observe-me onscroll-slide-in-from-right delay-3">Image on the Left, Text on the Right</h2>
-                        <p class="observe-me onscroll-slide-in-from-right delay-3">This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
-                    </div>
+                <p>Following the country’s reunification in 1975, life transformed with every passing day, bringing the ao dai into a new era. No longer reserved for ceremonies or schoolyards, the garment emerged as a cultural emblem, quietly mirroring the inner shifts of the Vietnamese spirit. We trace the ao dai’s journey—from the stately five-panel form to the contemporary silhouette—and explore the delicate differences in shape, fabric and meaning woven into each fold.</p>
                 </div>
-
+                <div class="student-work">
+                <img src="img/right_1.png" alt="placeholder" width="1300" height="679">
+                <img src="img/right_2.png" alt="placeholder" width="1300" height="679">
+                <img src="img/right_3.png" alt="placeholder" width="1300" height="679">
+                <img src="img/right_4.png" alt="placeholder" width="1300" height="679">
+                <img src="img/right_5.png" alt="placeholder" width="1300" height="679">
+                </div>
             </div>
         </section>
-
-        <section>
-            <div class="container">
-
-                <div class="row swapped">
-                    <div class="one-half">
-                        <img src="img/placeholder_2000x1000.gif" alt="Placeholder image" width="2000" height="1000">
-                    </div>
-                    <div class="one-half">
-                        <h2>Image on the Right, Text on the Left</h2>
-                        <p>This column is rending via the default normal flow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, fugit reprehenderit nobis eum modi ex.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+          
 
         <section>
             <div class="container">
@@ -112,11 +131,11 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-7">
                     <h2>About Simple Base</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident necessitatibus quod quae quasi officiis assumenda natus quis error, iste quo?</p>
                 </div>
-                <div class="col-3 push-9">
+                <div class="col-5 push-7">
                     <h2>Pages</h2>
                     <nav>
                         <ul>
@@ -131,9 +150,18 @@
         </div>
     </footer>
 
+    <script>
+        function playAudio() {
+            let audioPlayer = document.getElementById('myAudio');
+            audioPlayer.play();
+        }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 
     <!-- MAIN JS -->
     <script src="js/script.js"></script>
+
 
 </body>
 
