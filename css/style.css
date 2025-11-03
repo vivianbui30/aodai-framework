@@ -354,6 +354,13 @@ a:hover {
     padding-inline: var(--unit-s);
 } */
 
+/*  */
+.site-header {
+    position: relative;
+    z-index: 50;
+
+}
+
 /* REMOVE HEADER PADDING IF HAS A CONTAINER */
 .site-header:has(.container) {
     padding-inline: 0;
@@ -818,7 +825,7 @@ body > * {
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: var(--color-darkbrown-70);
+    background-color: var(--color-darkbrown-100);
   }
 
   .navbar-toggler {
